@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
     <title>FinTrack Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -55,14 +59,6 @@
         .animate-calendar-active { animation: calendarSquish 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .calendar-glow { animation: glowPulse 2s infinite ease-in-out; }
 
-        /* Staggered Logic */
-        .stagger-1 { animation-delay: 0.05s; }
-        .stagger-2 { animation-delay: 0.1s; }
-        .stagger-3 { animation-delay: 0.15s; }
-        .stagger-4 { animation-delay: 0.2s; }
-        .stagger-5 { animation-delay: 0.25s; }
-
-        /* Date Input Precision Overlay */
         .date-input-overlay::-webkit-calendar-picker-indicator {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -79,9 +75,7 @@
             body { background: white !important; color: black !important; }
             main { margin: 0 !important; padding: 20px !important; max-width: 100% !important; }
             .animate-tab-entry, .animate-card-pop { animation: none !important; opacity: 1 !important; transform: none !important; }
-            .print-only { display: block !important; }
         }
-        .print-only { display: none; }
     </style>
 <script type="importmap">
 {
@@ -98,6 +92,8 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
     <div id="root"></div>
+    <!-- Entry Point Script for standard hosting environments -->
+    <script type="module" src="./index.tsx"></script>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>
