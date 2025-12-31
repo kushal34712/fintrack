@@ -1,10 +1,10 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const enhanceTransactionDetails = async (note: string, categories: string[]) => {
   try {
+    // Instantiate the SDK right before use to ensure the most up-to-date environment config is used.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Cleaning and categorizing this financial note: "${note}".
